@@ -8,6 +8,7 @@ export const validateLine = (line, fileName) => {
 }
 
 export const createValidObject = (validLines, fileName) => {
+  console.log("asfasdfasfdasf")
   let object = {};
   object.file = fileName;
   object.lines = [];
