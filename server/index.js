@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import filesRouter from './routes/filesRouter.js';
+import filesRouter from './src/routes/filesRouter.js';
 
 
 const app = express();
@@ -19,7 +19,7 @@ dotenv.config();
 
 
 
-const PORT = process.env.PORT;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
