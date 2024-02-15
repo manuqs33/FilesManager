@@ -7,13 +7,12 @@ export const validateLine = (line, fileName) => {
   return true;
 }
 
-export const createValidObject = (validLines, fileName) => {
-  console.log("asfasdfasfdasf")
+export const createValidObject = (validLines, fileTitle) => {
   let object = {};
-  object.file = fileName;
+  object.file = fileTitle;
   object.lines = [];
   if (validLines.length == 0) return object;
-  
+
   for (let line of validLines) {
     const columns = line.split(',');
     object.lines.push({
@@ -24,6 +23,13 @@ export const createValidObject = (validLines, fileName) => {
   }
   return object;
 }
+
+export const createEmptyObject = (fileTitle) => {
+  return {
+    file: fileTitle,
+    lines: [],
+  }
+};
 
 const isValidHexadecimal = (input) => {
   const hexRegex = /^[0-9A-Fa-f]+$/;

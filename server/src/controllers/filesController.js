@@ -1,32 +1,42 @@
-import { createValidObject, validateLine } from '../utils/helpers.js';
+import { createValidObject, validateLine, createEmptyObject } from '../utils/helpers.js';
 import { getFilesList, getFileContent } from '../services/externalApiCallers.js';
 
 export const downloadFilesContent = async (req, res) => {
   try {
     let response = [];
+    let singleResponse = {};
     const filesList = await getFilesList();
     const { files } = filesList;
-    //console.log(files);
     const { fileName } = req.query;
+    res.set('Content-Type', 'application/json');
 
     if (fileName) {
       const fileContent = await getFileContent(fileName);
-      res.send({ content: fileContent });
+      if (typeof fileContent === 'string' && fileContent.startsWith('Error')) {
+        singleResponse = {"error": fileContent};
+      } else {
+        const rawLines = fileContent.split('\n');
+        const validLines = rawLines.filter(line => validateLine(line, fileName));
+        validLines.length === 0
+        ? singleResponse = createEmptyObject(fileName)
+        : singleResponse = createValidObject(validLines, fileName);
+      }
+      res.send(singleResponse);
       return;
     }
 
     for (let fileTitle of files) {
-      //console.log(fileTitle);
       const fileContent = await getFileContent(fileTitle);
-      if (!fileContent || fileContent==="file,text,number,hex") continue;
+      if (typeof fileContent === 'string' && fileContent.startsWith('Error')) continue;
       const rawLines = fileContent.split('\n');
       const validLines = rawLines.filter(line => validateLine(line, fileTitle));
-      //console.log("validLines", validLines);
-      if (validLines.length == 0) continue;
+      if (validLines.length == 0) {
+        response.push(createEmptyObject(fileTitle));
+        continue;
+      }
       let object = createValidObject(validLines, fileTitle);
       response.push(object);
     }
-    /* const fileContent = await getFileContent(fileName); */
     res.status(200).send(response);
   } catch (error) {
     res.status(500).send({ error: error.message });
@@ -36,6 +46,7 @@ export const downloadFilesContent = async (req, res) => {
 export const getFilesListController = async (req, res) => {
   try {
     const filesList = await getFilesList();
+    res.set('Content-Type', 'application/json');
     res.status(200).send(filesList);
   } catch (error) {
     res.status(500).send({ error: error.message });

@@ -5,7 +5,7 @@ import express from 'express';
 const filesRouter = express.Router();
 
 // Assign the function to a route
-filesRouter.get('/files/dat', downloadFilesContent);
+filesRouter.get('/files/data', downloadFilesContent);
 filesRouter.get('/files/list', getFilesListController);
 
 export default filesRouter;
