@@ -1,1 +1,5 @@
-start: docker-compose up
+args ?=
+compose = docker-compose
+
+start:
+	$(compose) up $(args)
