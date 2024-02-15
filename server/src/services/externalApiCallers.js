@@ -61,7 +61,6 @@ export const getFileContent = async (fileName) => {
       });
 
       req.on('error', (error) => {
-        console.error(error);
         reject(error);
       });
 
@@ -69,13 +68,11 @@ export const getFileContent = async (fileName) => {
     });
 
     if (response.statusCode >= 400) {
-      console.error(response);
       return "Error code " + response.statusCode;
     }
 
     return response.data;
   } catch (error) {
-    console.error(error);
     return "Error code 500";
   }
 };
