@@ -1,0 +1,20 @@
+.main-table {
+  margin-top: 2rem;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ButtonsBar {
+  padding-block: 2rem;
+  justify-content: space-between;
+}
+
+.col-md-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
