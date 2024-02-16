@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import './App.css'
+import './App.scss'
 import { Hero } from './components/Hero'
 import { MainTable } from './components/MainTable'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Toaster } from 'react-hot-toast';
 import { FilesDropdown } from './components/FilesDropdown';
 

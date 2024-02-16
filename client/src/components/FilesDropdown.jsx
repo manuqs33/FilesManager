@@ -16,7 +16,7 @@ export const FilesDropdown = () => {
   
   return (
       <Dropdown size="lg">
-        <Dropdown.Toggle variant="primary" id="dropdown-basic">
+        <Dropdown.Toggle size="lg" variant="success" id="dropdown-basic">
           Files List
         </Dropdown.Toggle>
         <Dropdown.Menu>

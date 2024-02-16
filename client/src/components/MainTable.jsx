@@ -34,7 +34,7 @@ export const MainTable = () => {
         <CustomSpinner />
       ) : (
         <>
-        <div className="row ButtonsBar">
+        <div className="row MainTable">
           <div className="col-md-4">
             <div className="flex-container">
               <Form>

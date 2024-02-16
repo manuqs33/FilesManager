@@ -8,10 +8,11 @@
   align-items: center;
 }
 
-.ButtonsBar {
+.MainTable {
   padding-block: 2rem;
   justify-content: space-between;
 }
+
 
 .col-md-4 {
   display: flex;
