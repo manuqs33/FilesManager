@@ -1,5 +1,4 @@
 import { expect } from 'chai';
-import { getFilesListController } from '../src/controllers/filesController.js';
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../index.js'; // Assuming index.js is your main file
