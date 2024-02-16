@@ -68,11 +68,11 @@ export const getFileContent = async (fileName) => {
     });
 
     if (response.statusCode >= 400) {
-      return "Error code " + response.statusCode;
+      return {"error": response.statusCode};
     }
 
     return response.data;
   } catch (error) {
-    return "Error code 500";
+      return {"error": response.statusCode};
   }
 };
