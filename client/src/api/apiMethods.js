@@ -34,14 +34,14 @@ export const fetchFile = async (fileName) => {
       },
       }
     );
-    
-  
+
     if (response.status > 400 && response.status < 500) {
       notifyToast('The file was not found in the server', 'warning');
       return [{}];
     }
-    if (response.status > 499) {
-      throw new Error('Server error')
+    if (response.status >  499) {
+      throw new Error("Server error");
+
     }
     if (response.ok) {
       let data = await response.json();
