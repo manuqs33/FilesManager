@@ -41,6 +41,7 @@ export const fetchFile = async (fileName) => {
     }
     if (response.status >  499) {
       throw new Error("Server error");
+
     }
     if (response.ok) {
       let data = await response.json();
