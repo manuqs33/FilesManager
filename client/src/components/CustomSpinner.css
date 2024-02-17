@@ -1,0 +1,37 @@
+.custom-spinner {
+  height: 307px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+
+.custom-spinner .spinner-border {
+  display: inline-block;
+  width: 3.75rem;
+  height: 3.75rem;
+  border: 0.2rem solid;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: 0.75s linear infinite spinner-border;
+}
+
+.custom-spinner .edit-spinner {
+  width: 54px;
+  height: 54px;
+}
+
+.custom-spinner .edit-spinner-span {
+  font-size: 1rem;
+}
+
+
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
+  }
+}
