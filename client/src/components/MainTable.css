@@ -1,0 +1,21 @@
+.main-table {
+  margin-top: 2rem;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MainTable {
+  padding-block: 2rem;
+  justify-content: space-between;
+}
+
+
+.col-md-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
