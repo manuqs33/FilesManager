@@ -36,9 +36,12 @@ export const fetchFile = async (fileName) => {
     );
     
   
-    if (response.status > 400) {
+    if (response.status > 400 && response.status < 500) {
       notifyToast('The file was not found in the server', 'warning');
       return [{}];
+    }
+    if (response.status > 499) {
+      throw new Error('Server error')
     }
     if (response.ok) {
       let data = await response.json();
@@ -46,7 +49,7 @@ export const fetchFile = async (fileName) => {
       return [data];
     }
   } catch (error) {
-    notifyToast('There was a server error downloading your file', 'warning');
+    notifyToast('There was a server error downloading your file', 'error');
     return [{}];
   }
 }
