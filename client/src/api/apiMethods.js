@@ -12,7 +12,6 @@ export const fetchValidLines = async () => {
       },
       }
     );
-    console.log("validLines", response)
     if (!response.ok) {
       throw new Error('Error fetching valid lines')
     }
@@ -63,12 +62,10 @@ export const fetchFilesList = async () => {
       },
       }
     );
-    console.log("response", response)
     if (!response.ok) {
       throw new Error('Error fetching')
     }
     let data = await response.json();
-    console.log("fileslistdata", data);
     return data;
   } catch (error) {
     notifyToast('Error fetching files list', 'error');
