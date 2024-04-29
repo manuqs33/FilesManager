@@ -1,3 +1,9 @@
+## Purpose
+
+This repo was elaborated to tackle a technical test. It consisted in using some pre-created endpoints to fetch some data with an Express API, validate it, and show it in a React Front End.
+
+The requirements included using Node 14 in the Back End, which meant having to use the https library instead of the Fetch API, and Node 16 in the Front End, which involved some adaptation to be able to use a Vite JS - React build.
+
 ### Functional aspects
 
 The purpose of this app is to gather, sanitize, and format information from a number of CSV files. It scans the files, and shows in a general table valid lines from these files. Lines are considered valid if:
